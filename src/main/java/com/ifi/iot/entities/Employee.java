@@ -2,12 +2,26 @@ package com.ifi.iot.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "Employee")
 public class Employee implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="name", nullable = false)
 	private String name;
+	
+	@Column(name="age")
 	private int age;
 	
 	public Employee() {
@@ -78,6 +92,13 @@ public class Employee implements Serializable{
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", age=" + age + "]";
+	}
+	
+	public void update(Employee emp) {
+		this.id = emp.getId();
+		this.name = emp.getName();
+		this.age = emp.getAge();
+		this.id = emp.id;
 	}
 	
 }
