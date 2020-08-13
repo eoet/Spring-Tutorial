@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="staffRepository" class="com.ifi.repositories.StaffRepositoryImpl" />
+    <bean name="staffService" class="com.ifi.services.StaffServiceImpl">
+<!--        <property name="staffRepository" ref="staffRepository" />-->
+        <constructor-arg name="staffRepository" ref="staffRepository"/>
+    </bean>
+    <bean name="staffService1" class="com.ifi.services.StaffServiceImpl" autowire="byType">
+<!--        <constructor-arg name="randomNumber" value="10" type="int" />-->
+<!--        <constructor-arg name="something" value="10" type="java.lang.String" />-->
+<!--        <constructor-arg name="staffRepository" ref="staffRepository"/>-->
+    </bean>
+</beans>
