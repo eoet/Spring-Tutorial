@@ -3,6 +3,8 @@ package com.ifi.services;
 import com.ifi.models.Staff;
 import com.ifi.repositories.StaffRepository;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
@@ -29,4 +31,23 @@ public class StaffServiceImpl implements StaffService {
     public List<Staff> getAllStaffs() {
         return staffRepository.getAllStaffs();
     }
+
+
+    @PreDestroy
+    public void destroy() throws Exception {
+        System.out.println("Employee destroy");
+    }
+
+    @PostConstruct
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Employee afterPropertiesSet");
+    }
+
+//    public void init() {
+//        System.out.println("Employee init");
+//    }
+//
+//    public void destroyEmployee() {
+//        System.out.println("Employee custom destroy");
+//    }
 }
