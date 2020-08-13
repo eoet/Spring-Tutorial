@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List employee</title>
+ 
+<style>
+th, td {
+    padding: 5px;
+}
+</style>
+ 
+</head>
+ 
+<body>
+    <!-- Include _menu.html -->
+    <th:block th:include="/_menu"></th:block>
+ 
+    <h2>List Employee</h2>
+ 
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each="emp : ${listEmployee}">
+            <td th:utext="${emp.id}">..</td>
+            <td th:utext="${emp.name}">..</td>
+            <td th:utext="${emp.age}">..</td>
+        </tr>
+ 
+    </table>
+</body>
+</html>

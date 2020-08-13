@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Create employee</title>
+   </head>
+    
+   <body>      
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+      
+      <h2>Update employee</h2>
+       
+      <div th:if="${errorMessage!=null}"
+           style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
+       
+      <form th:action="@{/{id}(id=${employee.id})}" th:object="${employee}" method="POST">
+         <table>
+ 
+           <tr>
+              <td>Name</td>
+              <td><input type="text" th:field="*{name}"/></td>
+           </tr>
+            <tr>
+              <td>Age</td>
+              <td><input type="text" th:field="*{age}" /></td>
+           </tr>           
+           <tr>
+              <td>&nbsp;</td>
+              <td><input type="submit" value="Submit"/></td>
+           </tr>       
+         </table>      
+      </form>
+       
+   </body>
+</html>

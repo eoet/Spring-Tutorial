@@ -16,13 +16,13 @@ public class Employee implements Serializable{
 	
 	@Id
 	@Column(name="id")
-	private int id;
+	private Integer id;
 	
 	@Column(name="name", nullable = false)
 	private String name;
 	
 	@Column(name="age")
-	private int age;
+	private Integer age;
 	
 	public Employee() {
 	}
