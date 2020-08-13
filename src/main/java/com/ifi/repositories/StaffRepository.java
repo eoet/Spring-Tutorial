@@ -1,9 +1,9 @@
 package com.ifi.repositories;
 
-import java.util.List;
-
 import com.ifi.models.Staff;
 
+import java.util.List;
+
 public interface StaffRepository {
-	public List<Staff> getAllStaffs();
+    List<Staff> getAllStaffs();
 }

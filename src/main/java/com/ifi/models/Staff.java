@@ -2,42 +2,41 @@ package com.ifi.models;
 
 public class Staff {
 
-	private String name;
+    private String name;
 
-	private String age;
+    private String age;
 
-	public String getName() {
-		return name;
-	}
+    public Staff(String name, String age) {
+        super();
+        this.name = name;
+        this.age = age;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Staff() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public String getAge() {
-		return age;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAge(String age) {
-		this.age = age;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Staff(String name, String age) {
-		super();
-		this.name = name;
-		this.age = age;
-	}
+    public String getAge() {
+        return age;
+    }
 
-	public Staff() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public void setAge(String age) {
+        this.age = age;
+    }
 
-	@Override
-	public String toString() {
-		return "Staff [name=" + name + ", age=" + age + "]";
-	}
-	
-	
+    @Override
+    public String toString() {
+        return "Staff [name=" + name + ", age=" + age + "]";
+    }
+
 
 }

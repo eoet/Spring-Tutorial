@@ -1,11 +1,11 @@
 package com.ifi.services;
 
-import java.util.List;
-
 import com.ifi.models.Staff;
+
+import java.util.List;
 
 public interface StaffService {
 
-	abstract List<Staff> getAllStaffs();
+    List<Staff> getAllStaffs();
 
 }
