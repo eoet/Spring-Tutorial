@@ -8,19 +8,30 @@ import java.util.List;
 
 import com.ifi.iot.connection.AbstractConnection;
 import com.ifi.iot.connection.MysqlConnection;
+import com.ifi.iot.connection.PosgresqlConnection;
 import com.ifi.iot.entities.Employee;
 
 public class EmployeeRepository {
 	private int ID_INDEX = 1;
 	private int NAME_INDEX = 2;
 	private int AGE_INDEX = 3;
+	private AbstractConnection sqlConn;
 
 	public EmployeeRepository() {
+		this.sqlConn = new MysqlConnection();
 		this.initTable();
+	}
+	
+	public EmployeeRepository(AbstractConnection sqlConn) {
+		this.sqlConn = sqlConn;
+		if (sqlConn instanceof MysqlConnection) {
+			this.initTable();
+		} else if(sqlConn instanceof PosgresqlConnection) {
+			this.initTablePosgreSQL();
+		}
 	}
 
 	private void initTable() {
-		AbstractConnection sqlConn = new MysqlConnection();
 		Connection conn = sqlConn.getConnection();
 		if (conn != null) {
 			try {
@@ -39,10 +50,30 @@ public class EmployeeRepository {
 			}
 		}
 	}
+	
+	private void initTablePosgreSQL() {
+		Connection conn = sqlConn.getConnection();
+		if (conn != null) {
+			try {
+				StringBuilder sb = new StringBuilder();
+				sb.append("CREATE SEQUENCE IF NOT EXISTS seq_emp;"); 
+				sb.append("CREATE TABLE IF NOT EXISTS Employee(");
+				sb.append("id integer PRIMARY KEY default nextval('seq_emp'),");
+				sb.append("name VARCHAR(50) NOT NULL,");
+				sb.append("age integer");
+				sb.append(")");
+				PreparedStatement stmt = conn.prepareStatement(sb.toString());
+				stmt.execute();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				sqlConn.closeConnection(conn);
+			}
+		}
+	}
 
 	public List<Employee> fetchAll() {
 		List<Employee> employees = null;
-		AbstractConnection sqlConn = new MysqlConnection();
 		Connection conn = sqlConn.getConnection();
 		if (conn != null) {
 			try {
@@ -70,7 +101,6 @@ public class EmployeeRepository {
 	}
 
 	public Employee create(Employee eIn) {
-		AbstractConnection sqlConn = new MysqlConnection();
 		Connection conn = sqlConn.getConnection();
 		Employee employee = null;
 		if (conn != null) {
@@ -97,7 +127,6 @@ public class EmployeeRepository {
 	}
 
 	public Employee update(Employee eIn) {
-		AbstractConnection sqlConn = new MysqlConnection();
 		Connection conn = sqlConn.getConnection();
 		Employee employee = null;
 		if (conn != null) {
@@ -121,7 +150,6 @@ public class EmployeeRepository {
 	}
 
 	public boolean delete(int eInId) {
-		AbstractConnection sqlConn = new MysqlConnection();
 		Connection conn = sqlConn.getConnection();
 		boolean isDeleted = false;
 		if (conn != null) {

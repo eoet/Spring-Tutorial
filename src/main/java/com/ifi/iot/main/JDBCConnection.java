@@ -2,6 +2,7 @@ package com.ifi.iot.main;
 
 import java.util.List;
 
+import com.ifi.iot.connection.PosgresqlConnection;
 import com.ifi.iot.db.EmployeeRepository;
 import com.ifi.iot.entities.Employee;
 import com.ifi.iot.utils.IotUtils;
@@ -9,7 +10,7 @@ import com.ifi.iot.utils.IotUtils;
 public class JDBCConnection {
 	public static void main(String[] args) {
 		// Get Connection
-		EmployeeRepository empRepo = new EmployeeRepository();
+		EmployeeRepository empRepo = new EmployeeRepository(new PosgresqlConnection());
 		
 		// Create Employee
 		createEmployee(empRepo, new Employee("Hiep", 31));
