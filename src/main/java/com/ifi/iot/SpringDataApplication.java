@@ -1,8 +1,7 @@
-package com.ifi.iot.app;
+package com.ifi.iot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class SpringDataApplication {

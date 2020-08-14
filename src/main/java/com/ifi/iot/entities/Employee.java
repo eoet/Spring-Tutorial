@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +18,7 @@ public class Employee implements Serializable{
 	
 	@Id
 	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="name", nullable = false)
@@ -27,12 +30,12 @@ public class Employee implements Serializable{
 	public Employee() {
 	}
 
-	public Employee(String name, int age) {
+	public Employee(String name, Integer age) {
 		this.name = name;
 		this.age = age;
 	}
 	
-	public Employee(int id, String name, int age) {
+	public Employee(Integer id, String name, Integer age) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -42,10 +45,10 @@ public class Employee implements Serializable{
 		return new Employee(this.id, this.name, this.age);
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -54,10 +57,10 @@ public class Employee implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	@Override
