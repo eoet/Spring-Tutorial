@@ -1,7 +1,7 @@
 # Spring-Tutorial
 This is tutorial for Spring Core, Spring boot, Spring Data, Spring Security and monitoring.
 ## 1. Spring Core Configuration
-||
+|List branches|
 |-----------|
 |[**🎉 No using spring context to configure beans**][1.1]|
 |[**🎉 Using XML to configure beans**][1.2]|
