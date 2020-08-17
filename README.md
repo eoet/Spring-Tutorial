@@ -41,3 +41,8 @@ I use Mysql in this example.
 ### Branch spring-data/4.spring-jpa
 Read file **[application.properties]**, **[SpringDataApplication.java]** and run this file, see in Console.
 I'd like you to discover every components I use in this example and you will under
+
+# License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+Readme is maintained by [Hiep](mailto:hoanghiep2004hy@gmail.com) and [Tung](mailto:letungl2t@gmail.com)
