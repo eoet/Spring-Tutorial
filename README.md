@@ -1,12 +1,12 @@
 # Spring-Tutorial
 This is tutorial for Spring Core, Spring boot, Spring Data, Spring Security and monitoring.
 ## 1. Spring Core Configuration
-|List branches|Desc|
+|List branches|Description|
 |-----------|------------|
-|[**🎉 No using spring context to configure beans**][1.1]|Using `new` keyword to initialize the object|
-|[**🎉 Using XML to configure beans**][1.2]|Using Dependency Injection (DI) and Inversion of control (IOC) technology to initialize the bean by XML configuration|
-|[**🎉 Spring bean life cycle**][1.3]|More information about IOC container to manage beans (init and destroy)|
-|[**🎉 Using Annotation to configure beans**][1.4]|Reduce codes to declare beans by Annotation configuration|
+|[**🎉 No using spring context to configure beans**][1.1]|Using `new` keyword to initialize the object.|
+|[**🎉 Using XML to configure beans**][1.2]|Using Dependency Injection (DI) and Inversion of control (IOC) technology to initialize the bean by XML configuration.|
+|[**🎉 Spring bean life cycle**][1.3]|More information about IOC container to manage beans (init and destroy).|
+|[**🎉 Using Annotation to configure beans**][1.4]|Reduce codes to declare beans by Annotation configuration.|
 
 [1.1]: https://github.com/eoet/Spring-Tutorial/tree/spring-boot/1.starter
 [1.2]: https://github.com/eoet/Spring-Tutorial/tree/spring-boot/2.xml-configuration
