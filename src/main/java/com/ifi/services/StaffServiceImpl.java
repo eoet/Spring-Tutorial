@@ -35,12 +35,12 @@ public class StaffServiceImpl implements StaffService {
 
     @PreDestroy
     public void destroy() throws Exception {
-        System.out.println("Employee destroy");
+        System.out.println("Staff destroy");
     }
 
     @PostConstruct
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Employee afterPropertiesSet");
+        System.out.println("Staff afterPropertiesSet");
     }
 
 //    public void init() {
