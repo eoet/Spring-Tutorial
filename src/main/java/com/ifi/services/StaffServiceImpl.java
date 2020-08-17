@@ -2,18 +2,23 @@ package com.ifi.services;
 
 import com.ifi.models.Staff;
 import com.ifi.repositories.StaffRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
+@Service("staffService")
 public class StaffServiceImpl implements StaffService {
+
     private StaffRepository staffRepository;
 
     public StaffServiceImpl() {
         System.out.println("Constructor no-args");
     }
 
+    @Autowired
     public StaffServiceImpl(StaffRepository staffRepository) {
         System.out.println("Constructor Injection");
         this.staffRepository = staffRepository;
