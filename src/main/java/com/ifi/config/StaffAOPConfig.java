@@ -1,17 +1,17 @@
 package com.ifi.config;
 
+import com.ifi.model.Staff;
+import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 @Aspect
 @Configuration
@@ -30,7 +30,7 @@ public class StaffAOPConfig {
     }
 
     @Around("target(com.ifi.service.StaffService)")
-    public Object logMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+    public void logMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         logger.info("Join Point {}", joinPoint);
         Instant start = Instant.now();
         try {
