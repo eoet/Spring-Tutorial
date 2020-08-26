@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 
-@Aspect
+//@Aspect
 @Configuration
 public class StaffAOPConfig {
 
@@ -31,7 +31,7 @@ public class StaffAOPConfig {
 
     @Around("target(com.ifi.service.StaffService)")
     public void logMethod(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.info("Join Point {}", joinPoint);
+//        logger.info("Join Point {}", joinPoint);
         Instant start = Instant.now();
         try {
             joinPoint.proceed();
@@ -39,8 +39,8 @@ public class StaffAOPConfig {
             e.printStackTrace();
         }
         Instant end = Instant.now();
-        long timeElapsed = Duration.between(start, end).toMillis();
-        logger.info("Total Turnaround time: {}", timeElapsed);
+//        long timeElapsed = Duration.between(start, end).toMillis();
+//        logger.info("Total Turnaround time: {}", timeElapsed);
     }
 
 }
